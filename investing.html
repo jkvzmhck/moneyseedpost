@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market-News - MoneySeedPost</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container">
+            <h1>MoneySeedPost</h1>
+            <button class="nav-toggle" id="nav-toggle">&#9776;</button>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="investing.html">Investing</a>
+                <a href="personal-finance.html">Personal Finance</a>
+                <a href="Market-News.html">Market News</a>
+                <a href="About.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- 投资分类文章列表 -->
+    <div class="container">
+        <h2>Investing Articles</h2>
+        <div id="post-list" class="blog-posts"></div>
+        <button id="load-more">Load More</button>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2025 MoneySeedPost. All rights reserved.</p>
+    </footer>
+
+    <!-- 引入统一文章数据 -->
+ 
+    <script src="../JS/articles.js"></script>
+    <script src="../JS/scripts.js"></script>
+    <script>
+        // ------------------ Investing 分类分页 ------------------
+        if(document.getElementById('post-list')){
+            const postsPerPage = 3; // 每页显示文章数
+            let currentPage = 1;
+            const postListEl = document.getElementById('post-list');
+            const loadMoreBtn = document.getElementById('load-more');
+
+            // 过滤出 Investing 类别文章
+            const investingArticles = articles.filter(a => a.category === "investing");
+
+            function renderPosts(page){
+                const start = (page - 1) * postsPerPage;
+                const end = start + postsPerPage;
+                const currentPosts = investingArticles.slice(start, end);
+                currentPosts.forEach(post => {
+                    const div = document.createElement('div');
+                    div.classList.add('post');
+                    div.innerHTML = `
+                        <img src="${post.img}" alt="${post.title}">
+                        <h3><a href="${post.link}">${post.title}</a></h3>
+                        <p>${post.summary}</p>
+                    `;
+                    postListEl.appendChild(div);
+                });
+                if(end >= investingArticles.length){
+                    loadMoreBtn.style.display = 'none';
+                }
+            }
+
+            loadMoreBtn.addEventListener('click', () => {
+                currentPage++;
+                renderPosts(currentPage);
+            });
+
+            renderPosts(currentPage);
+        }
+    </script>
+</body>
+</html>
