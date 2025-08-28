@@ -136,10 +136,10 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive Navigation */
 @media (max-width: 768px) {
     nav {
-        display: none;
+        display: flex;
         flex-direction: column;
         gap: 10px;
         background-color: #1e3a8a;
@@ -148,16 +148,27 @@ footer a:hover {
         top: 70px;
         right: 20px;
         border-radius: 8px;
+        transform: translateX(100%); /* 默认隐藏到右侧 */
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 1000;
     }
 
     nav.show {
-        display: flex;
+        transform: translateX(0);   /* 滑入 */
+        opacity: 1;                 /* 渐显 */
     }
 
     .nav-toggle {
         display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: #fff;
     }
 }
+
 
 /* 文章样式 */
 .post-article {
@@ -178,6 +189,15 @@ footer a:hover {
     font-size: 0.9rem;
     margin-bottom: 20px;
 }
+.post-content {
+    text-align: justify;          /* 两端对齐 */
+    text-justify: inter-word;     /* 单词间距调整更自然 */
+    line-height: 1.6;             /* 行高，提升可读性 */
+    font-size: 1rem;              /* 文字大小，可适应移动端 */
+    margin: 0;
+    padding: 0 10px;              /* 左右内边距，防止贴边 */
+}
+
 
 .post-content p {
     margin-bottom: 16px;
@@ -186,26 +206,6 @@ footer a:hover {
     color: #333;
 }
 
-.related-posts {
-    margin-top: 40px;
-}
-
-.related-posts h3 {
-    margin-bottom: 15px;
-    color: #1e3a8a;
-}
-
-.related-posts .post {
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #f9f9f9;
-    border-radius: 6px;
-    transition: transform 0.2s;
-}
-
-.related-posts .post:hover {
-    transform: translateY(-2px);
-}
 
 /*------------------------------*/
 /* 布局 */
@@ -272,14 +272,14 @@ footer a:hover {
 }
 
 /* 标题样式 */
-.recommended-card .card-content a {
-    color: #1e3a8a;
+.recommended-card .card-content  {
+    color: #000000;
     font-weight: bold;
     text-decoration: none;
 }
 
 .recommended-card .card-content a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -288,6 +288,15 @@ footer a:hover {
     .post-page {
         flex-direction: column;
     }
+    .post-content {
+        font-size: 0.95rem;       /* 小屏文字稍微缩小 */
+        padding: 0 15px;          /* 保证左右空白 */
+    }
+
+    .post-content p {
+    text-indent: 2em;
+}
+
 
     .sidebar {
         margin-top: 30px;
@@ -295,6 +304,9 @@ footer a:hover {
 }
 
 
+
+
+/*关联文章*/
 .related-card {
     width: 250px;
     border-radius: 8px;
