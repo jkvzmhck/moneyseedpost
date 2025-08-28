@@ -1,11 +1,14 @@
 // -------------------- Mobile nav toggle --------------------
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
+
+document.addEventListener("DOMContentLoaded", function() {
+    const navToggle = document.getElementById("nav-toggle");
+    const navMenu = document.getElementById("nav-menu");
+
+    navToggle.addEventListener("click", function() {
+        navMenu.classList.toggle("show");
     });
-}
+});
+
 
 // -------------------- Utility: escape HTML to prevent XSS --------------------
 function escapeHTML(str) {
