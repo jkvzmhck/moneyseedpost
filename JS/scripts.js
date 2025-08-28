@@ -116,24 +116,40 @@ function renderRecommendedPosts(currentPostTitle = '', count = 6) {
 
 // -------------------- Related Posts --------------------
 
-
-
-function renderRelatedPosts(currentPostTitle, currentPostCategory, count = 3) {
+document.addEventListener("DOMContentLoaded", function() {
     const relatedList = document.getElementById('related-list');
     if (!relatedList) return;
+
+    // 获取 meta 信息
+    const currentTitleMeta = document.querySelector("meta[name='post-title']");
+    const currentCategoryMeta = document.querySelector("meta[name='current-category']");
+    if (!currentTitleMeta || !currentCategoryMeta) return;
+
+    const currentTitle = currentTitleMeta.content.trim();
+    const currentCategory = currentCategoryMeta.content.trim();
+
+    // 随机挑选相关文章
+    const relatedArticles = articles
+        .filter(a => a.category === currentCategory && a.title !== currentTitle)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+
+    // 清空旧内容
     relatedList.innerHTML = '';
 
-    const related = articles
-        .filter(post => post.category === currentPostCategory && post.title !== currentPostTitle)
-        .slice(0, count);
-
-    related.forEach(post => {
-        const div = document.createElement('div');
-        div.classList.add('post');
-        div.innerHTML = `<a href="${escapeHTML(post.link)}">${escapeHTML(post.title)}</a>`;
-        relatedList.appendChild(div);
+relatedArticles.forEach(post => {
+    const card = document.createElement('div');
+    card.classList.add('related-card');  // 使用相关文章卡片样式
+    card.innerHTML = `
+        <a href="${escapeHTML(post.link)}">
+            ${post.img ? `<img src="${escapeHTML(post.img)}" alt="${escapeHTML(post.title)}">` : ''}
+            <div class="card-content">${escapeHTML(post.title)}</div>
+        </a>
+    `;
+    relatedList.appendChild(card);
     });
-}
+});
+
 
 // -------------------- Initialization --------------------
 renderPosts(filteredArticles, currentPage);
