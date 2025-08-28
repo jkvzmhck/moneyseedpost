@@ -87,35 +87,68 @@ nav a:hover {
     font-size: 1rem;
 }
 
-/* Blog Posts */
+/* Blog Posts Grid */
 .blog-posts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 自动适应多列 */
     gap: 30px;
     margin-top: 20px;
 }
 
+/* 单篇文章卡片：相框风格 */
 .post {
     background: #fff;
-    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column; /* 图片在上，文字在下 */
 }
 
+/* hover 效果 */
 .post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
 }
 
-.post h3 {
+/* 文章封面图片 */
+.post img {
+    width: 100%;        /* 宽度自适应卡片 */
+    height: 120px;      /* 高度固定，可调整 */
+    object-fit: cover;  /* 保持比例并裁剪 */
+    display: block;
+}
+
+/* 文字内容部分 */
+.post .post-content {
+    padding: 15px;
+    background-color: #dbd6d6;  /* 浅色底部 */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;           /* 保证文字区域高度一致 */
+}
+
+/* 标题 */
+.post .post-content h3 {
     color: #1e3a8a;
-    margin-bottom: 10px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1rem;
 }
 
-.post p {
-    font-size: 0.95rem;
+/* 摘要文字 */
+.post .post-content p {
+    font-size: 0.75rem;
     color: #555;
+    line-height: 1.2;
+    display: -webkit-box;
+    line-clamp: 2;       /* 最大两行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Footer */
