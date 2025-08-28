@@ -90,62 +90,68 @@ nav a:hover {
 /* Blog Posts Grid */
 .blog-posts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 自动适应多列 */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 30px;
     margin-top: 20px;
 }
 
-/* 单篇文章卡片：相框风格 */
+/* 单篇文章卡片 */
 .post {
-    background: #fff;
+    width: 250px;                  /* 可选：统一宽度 */
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(116, 16, 16, 0.1);
+    margin-bottom: 20px;
     transition: transform 0.2s;
-    display: flex;
-    flex-direction: column; /* 图片在上，文字在下 */
+    position: relative;            /* 文字绝对定位参考 */
 }
 
-/* hover 效果 */
 .post:hover {
     transform: translateY(-3px);
 }
 
 /* 文章封面图片 */
 .post img {
-    width: 100%;        /* 宽度自适应卡片 */
-    height: 120px;      /* 高度固定，可调整 */
-    object-fit: cover;  /* 保持比例并裁剪 */
+    width: 100%;
+    height: 250px;                 /* 可调整高度 */
+    object-fit: cover;
     display: block;
 }
 
-/* 文字内容部分 */
+/* 文字覆盖在图片下1/3区域 */
 .post .post-content {
-    padding: 15px;
-    background-color: #dbd6d6;  /* 浅色底部 */
-    text-align: center;
+    position: absolute;            /* 文字覆盖 */
+    bottom: 0;                     /* 位于图片底部 */
+    width: 100%;
+    height: 53%;                   /* 下1/3 */
+    background-color: rgba(231, 235, 240, 0.4); /* 半透明背景 */
+    color: #ffffff;                   /* 白色文字 */
     display: flex;
-    flex-direction: column;
+    flex-direction: column;        /* 标题在上，摘要在下 */
     align-items: center;
-    justify-content: center;
-    min-height: 80px;           /* 保证文字区域高度一致 */
+    justify-content: center;       /* 垂直居中 */
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* 标题 */
 .post .post-content h3 {
-    color: #1e3a8a;
+    color: #f7f7f7;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin: 0;
     font-size: 1rem;
 }
 
 /* 摘要文字 */
 .post .post-content p {
+    color: #ffffff;
     font-size: 0.75rem;
-    color: #555;
+    margin: 2px 0 0;
     line-height: 1.2;
     display: -webkit-box;
-    line-clamp: 2;       /* 最大两行 */
+    line-clamp: 2;        /* 最多两行 */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
