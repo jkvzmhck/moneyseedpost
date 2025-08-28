@@ -170,7 +170,7 @@ footer a:hover {
 
 .post-article h2 {
     color: #1e3a8a;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .post-date {
@@ -181,7 +181,7 @@ footer a:hover {
 
 .post-content p {
     margin-bottom: 16px;
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 1.7;
     color: #333;
 }
@@ -212,7 +212,7 @@ footer a:hover {
 .post-page {
     display: flex;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 /* 主内容 */
@@ -235,33 +235,43 @@ footer a:hover {
 }
 
 /* 推荐文章卡片 */
+/* 推荐文章卡片：相框风格 */
 .recommended-card {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+    width: 250px; /* 卡片宽度，可调整 */
     background: #fff;
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* 图片在上，文字在下 */
     transition: transform 0.2s;
+    margin-bottom: 20px;
 }
 
 .recommended-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
+/* 图片部分 */
 .recommended-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
+    width: 100%;        /* 宽度自适应卡片 */
+    height: 90px;      /* 图片高度，可调整 */
+    object-fit: cover;  /* 保持比例并裁剪多余部分 */
+    display: block;
 }
 
+/* 文字内容部分 */
 .recommended-card .card-content {
-    padding: 10px;
+    padding: 12px;           /* 底部留白空间 */
+    background-color: #dbd6d6;  /* 可以改成浅色背景 */
+    text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
+    min-height: 60px;        /* 保证底部有足够空间 */
 }
 
+/* 标题样式 */
 .recommended-card .card-content a {
     color: #1e3a8a;
     font-weight: bold;
@@ -271,6 +281,7 @@ footer a:hover {
 .recommended-card .card-content a:hover {
     text-decoration: underline;
 }
+
 
 /* 响应式：侧边栏在移动端显示在下方 */
 @media (max-width: 768px) {
