@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market-News - MoneySeedPost</title>
-    <link rel="stylesheet" href="CSS/styles.css">
+    <meta name="description" content="MoneySeedPost - Article">
+    <meta name="post-title" content="Investment Tips for 2025">
+    <meta name="current-category" content="Investing">
+    <title>Article Title - MoneySeedPost</title>
+    <link rel="stylesheet" href="../CSS/styles_article.css">
 </head>
 <body>
-    <!-- 头部导航 -->
     <header>
         <div class="container">
             <h1>MoneySeedPost</h1>
@@ -21,61 +23,90 @@
             </nav>
         </div>
     </header>
-
-
-    <!-- 投资分类文章列表 -->
+    
+    
     <div class="container">
-        <h2>Investing Articles</h2>
-        <div id="post-list" class="blog-posts"></div>
-        <button id="load-more">Load More</button>
+    <h2>Filtered Articles</h2>
+    <div class="blog-posts" id="filtered-post-list">
+        <!-- 筛选出的文章将插入这里 -->
     </div>
+</div>
 
-    <!-- 页脚 -->
-    <footer>
-        <p>&copy; 2025 MoneySeedPost. All rights reserved.</p>
-    </footer>
+<script src="../JS/articles.js"></script>
+<script>
+// 所有文章数据
+   
 
-    <!-- 引入统一文章数据 -->
- 
-    <script src="../JS/articles.js"></script>
-    <script src="../JS/scripts.js"></script>
-    <script>
-        // ------------------ Investing 分类分页 ------------------
-        if(document.getElementById('post-list')){
-            const postsPerPage = 3; // 每页显示文章数
-            let currentPage = 1;
-            const postListEl = document.getElementById('post-list');
-            const loadMoreBtn = document.getElementById('load-more');
+// 筛选分类函数
+function filterArticlesByCategory(category) {
+    return articles.filter(article => article.category === category);
+}
+// 生成 HTML
+function generateHTMLForArticles(articleList) {
+    const container = document.getElementById('filtered-post-list');
+    container.innerHTML = ''; // 清空原内容
 
-            // 过滤出 Investing 类别文章
-            const investingArticles = articles.filter(a => a.category === "investing");
+    articleList.forEach(article => {
+        const card = document.createElement('div');
+        card.classList.add('post-card'); // 可以配合 CSS 美化
 
-            function renderPosts(page){
-                const start = (page - 1) * postsPerPage;
-                const end = start + postsPerPage;
-                const currentPosts = investingArticles.slice(start, end);
-                currentPosts.forEach(post => {
-                    const div = document.createElement('div');
-                    div.classList.add('post');
-                    div.innerHTML = `
-                        <img src="${post.img}" alt="${post.title}">
-                        <h3><a href="${post.link}">${post.title}</a></h3>
-                        <p>${post.summary}</p>
-                    `;
-                    postListEl.appendChild(div);
-                });
-                if(end >= investingArticles.length){
-                    loadMoreBtn.style.display = 'none';
-                }
-            }
+        card.innerHTML = `
+            <a href="${article.link}">
+                <img src="${article.img}" class="post-img">
+                <h3 class="post-title">${article.title}</h3>
+            </a>
+            <p class="post-summary">${article.summary}</p>
+            <span class="post-date">${article.date}</span>
+        `;
 
-            loadMoreBtn.addEventListener('click', () => {
-                currentPage++;
-                renderPosts(currentPage);
-            });
+        container.appendChild(card);
+    });
+}
 
-            renderPosts(currentPage);
-        }
-    </script>
-</body>
-</html>
+// 使用示例：只显示 Investing 类别的文章
+const investingArticles = filterArticlesByCategory('Investing');
+generateHTMLForArticles(investingArticles);
+</script>
+
+<style>
+/* 简单 CSS 美化示例 */
+.post-card {
+  background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column; /* 图片在上，文字在下 */
+}
+.post-card:hover {
+      transform: translateY(-3px);
+}
+.post-img {
+   width: 100%;        /* 宽度自适应卡片 */
+    height: 120px;      /* 高度固定，可调整 */
+    object-fit: cover;  /* 保持比例并裁剪 */
+    display: block;
+}
+
+.post-title h3{
+       color: #1e3a8a;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+.post-summary p{
+   font-size: 0.75rem;
+    color: #555;
+    line-height: 1.2;
+    display: -webkit-box;
+    line-clamp: 2;       /* 最大两行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.post-date {
+    font-size: 0.9em;
+    color: #999;
+}
+</style>
