@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const relatedArticles = articles
         .filter(a => a.category === currentCategory && a.title !== currentTitle)
         .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
+        .slice(0, 10);
 
     // 清空旧内容
     relatedList.innerHTML = '';
@@ -167,4 +167,5 @@ if (currentPostTitle && currentPostCategory) {
 } else {
     renderRecommendedPosts(); // 首页随机推荐
 }
+
 
