@@ -19,7 +19,7 @@ function escapeHTML(str) {
 
 // -------------------- Render Posts with Pagination --------------------
 let currentPage = 1;
-const postsPerPage = 5;
+const postsPerPage = 20;
 let filteredArticles = [...articles]; // 全局筛选后的文章列表
 articles.sort((a, b) => new Date(b.date) - new Date(a.date)); // 按日期降序
 
@@ -167,3 +167,4 @@ if (currentPostTitle && currentPostCategory) {
 } else {
     renderRecommendedPosts(); // 首页随机推荐
 }
+
