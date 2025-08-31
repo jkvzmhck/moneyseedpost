@@ -5,7 +5,7 @@ const articles = [
         link: "/posts/Top 5 Investment Strategies for 2025.html",
         img: "/assets/01.jpg",
         category: "Investing",
-        date: "2025-08-27",
+        date: "2025-08-28",
         summary: "Discover the most effective investment approaches to grow your portfolio in 2025 and beyond."
     },
     {
@@ -13,7 +13,7 @@ const articles = [
         link: "/posts/How to Save for Retirement Without Sacrificing Today.html",
         img: "/assets/02.jpg",
         category: "Personal Finance",
-        date: "2025-08-25",
+        date: "2025-08-29",
         summary: "Learn smart ways to balance living your best life now while planning for a secure future."
     },
     {
@@ -21,7 +21,7 @@ const articles = [
         link: "/posts/Understanding Cryptocurrency RisksToday.html",
         img: "/assets/03.jpg",
         category: "Investing",
-        date: "2025-08-20",
+        date: "2025-08-30",
         summary: "A clear guide to navigating the volatile crypto market safely and wisely."
     },
     {
@@ -29,7 +29,7 @@ const articles = [
         link: "/posts/Budgeting Tips for Young Professionals.html",
         img: "/assets/09.jpg",
         category: "Personal Finance",
-        date: "2025-08-15",
+        date: "2025-08-31",
         summary: "Simple, practical tips to manage your money, reduce debt, and build savings early."
     },
     {
@@ -37,7 +37,7 @@ const articles = [
         link: "/posts/Top 10 Stocks to Watch This Year.html",
         img: "/assets/10.jpg",
         category: "Investing",
-        date: "2025-08-10",
+        date: "2025-08-20",
         summary: "A curated list of potential high-performing stocks and what to watch out for."
     },
    {
@@ -45,7 +45,7 @@ const articles = [
     link: "/posts/The Magic of Compound Interest-Turning Time Into Your Greatest Investment Ally.html",
     img: "/assets/15.jpg",
     category: "Personal Finance",
-    date: "2025-08-30",
+    date: "2025-08-21",
     summary: "Learn how compound interest grows wealth over time and why starting early makes all the difference."
 },
  {
@@ -53,7 +53,7 @@ const articles = [
     "link": "/posts/How to Build Wealth with Dividend Stocks in 2025.html",
     "img": "/assets/13.jpg",
     "category": "Investing",
-    "date": "2025-08-30",
+    "date": "2025-08-22",
     "summary": "Discover why dividend stocks remain a powerful tool for long-term wealth building."
 },
   {
@@ -61,7 +61,7 @@ const articles = [
     "link": "/posts/How Compound Interest Can Turn Small Savings Into Big Wealth.html",
     "img": "/assets/14.jpg",
     "category": "Personal Finance",
-    "date": "2025-08-31",
+    "date": "2025-08-23",
     "summary": "Discover how compound interest works and why starting early can make your money grow exponentially."
 },
 {
@@ -69,7 +69,7 @@ const articles = [
     "link": "/posts/ETF Investing-The Easiest Way to Build Wealth with Less Risk.html",
     "img": "/assets/12.jpg",
     "category": "Investing",
-    "date": "2025-08-31",
+    "date": "2025-08-24",
     "summary": "Learn why ETFs are a beginner-friendly, low-cost tool for diversifying and growing your investments."
 },
 {
@@ -77,7 +77,7 @@ const articles = [
     "link": "/posts/20250831/The Power of Dollar-Cost Averaging-How Small Steps Lead to Big Wealth.html",
     "img": "/assets/14.jpg",
     "category": "Personal Finance",
-    "date": "2025-08-31",
+    "date": "2025-08-25",
     "summary": "Discover how dollar-cost averaging helps reduce risk and build wealth steadily over time."
 },
 
@@ -86,9 +86,18 @@ const articles = [
     "link": "/posts/20250831/The Power of Compound Interest-How Small Investments Grow Big.html",
     "img": "/assets/13.jpg",
     "category": "Personal Finance",
-    "date": "2025-08-31",
+    "date": "2025-08-26",
     "summary": "Discover how compound interest turns small, consistent savings into significant long-term wealth."
+},
+{
+    title: "Mastering Passive Income: How to Make Your Money Work for You",
+    link: "/posts/20250831/Mastering Passive Income-How to Make Your Money Work for You.html",
+    img: "/assets/12.jpg",
+    category: "Personal Finance",
+    date: "2025-08-27",
+    summary: "Learn practical strategies to generate passive income and grow wealth steadily over time."
 }
+
 
 
 
