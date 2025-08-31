@@ -39,5 +39,42 @@ const articles = [
         category: "Investing",
         date: "2025-08-10",
         summary: "A curated list of potential high-performing stocks and what to watch out for."
-    }
+    },
+   {
+    title: "The Magic of Compound Interest:Turning Time Into Your Greatest Investment Ally",
+    link: "../posts/The Magic of Compound Interest-Turning Time Into Your Greatest Investment Ally.html",
+    img: "../assets/15.jpg",
+    category: "Personal Finance",
+    date: "2025-08-30",
+    summary: "Learn how compound interest grows wealth over time and why starting early makes all the difference."
+},
+ {
+    "title": "How to Build Wealth with Dividend Stocks in 2025",
+    "link": "../posts/How to Build Wealth with Dividend Stocks in 2025.html",
+    "img": "../assets/13.jpg",
+    "category": "Investing",
+    "date": "2025-08-30",
+    "summary": "Discover why dividend stocks remain a powerful tool for long-term wealth building."
+},
+  {
+    "title": "How Compound Interest Can Turn Small Savings Into Big Wealth",
+    "link": "../posts/How Compound Interest Can Turn Small Savings Into Big Wealth.html",
+    "img": "../assets/14.jpg",
+    "category": "Personal Finance",
+    "date": "2025-08-31",
+    "summary": "Discover how compound interest works and why starting early can make your money grow exponentially."
+},
+{
+    "title": "ETF Investing: The Easiest Way to Build Wealth with Less Risk",
+    "link": "../posts/ETF Investing-The Easiest Way to Build Wealth with Less Risk.html",
+    "img": "../assets/12.jpg",
+    "category": "Investing",
+    "date": "2025-08-31",
+    "summary": "Learn why ETFs are a beginner-friendly, low-cost tool for diversifying and growing your investments."
+}
+
+
+
+    
+    
 ];
