@@ -44,6 +44,7 @@ nav {
 nav a {
     color: #fff;
     text-decoration: none;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
@@ -181,6 +182,12 @@ footer a:hover {
 
 .post-article h2 {
     color: #1e3a8a;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.post-article h4 {
+    color: #1e3a8a;
+    font-size: 23px;
     margin-bottom: 20px;
 }
 
@@ -346,4 +353,43 @@ footer a:hover {
 
 .related-card .card-content a:hover {
     text-decoration: underline; /* 可选 */
+}
+
+  html, body {
+        height: 100%;
+        margin: 0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    main {
+        flex: 1; /* 占据剩余空间，推动 footer 到底部 */
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #1e3a8a;
+        color: #fff;
+    }
+
+    
+/* styles.css */
+body {
+    position: relative;     /* 允许伪元素定位 */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;      /* 保证背景覆盖整个页面 */
+}
+
+body::before {
+    content: ""; 
+    position: fixed;        /* 固定整个屏幕 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/08.jpg") center/cover no-repeat;
+    opacity: 0.5;           /* 半透明度，可调 0~1 */
+    z-index: -1;            /* 放到内容下面 */
 }
